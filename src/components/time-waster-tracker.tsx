@@ -49,7 +49,7 @@ export function TimeWasterTracker() {
     const today = new Date()
     const weekKey = getWeekKey(today)
     const newEntry: Entry = {
-      _id: Date.now().toString(), // Simulando un ID único
+      _id: Date.now().toString()
       date: today.toISOString(),
       network: selectedNetwork.name,
       person: selectedPerson.name,
@@ -63,7 +63,6 @@ export function TimeWasterTracker() {
         ...prev,
         [weekKey]: [...(prev[weekKey] || []), savedEntry.data]
       }
-      // Filtrar semanas vacías
       const filteredEntries = Object.keys(updatedEntries).reduce((acc, weekKey) => {
         if (updatedEntries[weekKey].length > 0) {
           acc[weekKey] = updatedEntries[weekKey]
